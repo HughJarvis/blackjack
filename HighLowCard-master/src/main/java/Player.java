@@ -17,7 +17,14 @@ public class Player {
         this.hand.add(card);
     }
 
-//    public void seeHand(){
-//        this.hand.rank.getvalue();
-//    }
+    public int getHandValue() {
+            int handValue = 0;
+        for (Card card : this.hand){
+            handValue += card.getValueFromEnum();
+        }
+        return handValue;
+    }
+
 }
+
+

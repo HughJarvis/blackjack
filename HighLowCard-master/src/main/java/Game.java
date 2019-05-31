@@ -4,14 +4,12 @@ public class Game {
 
     private Deck deck;
     private ArrayList<Player> players;
-    private Player player;
+
 
     public Game(Deck deck){
         this.deck = deck;
         this.players = new ArrayList<Player>();
-
     }
-
 
 
     public void addPlayer(Player player) {
@@ -25,18 +23,25 @@ public class Game {
     public void dealCardToPlayer(Player player) {
         Card dealtCard = deck.dealCard();
         player.addCardToHand(dealtCard);
-
     }
+
 
     public void dealCardToAllPlayers() {
         for (Player player : this.players) {
             this.dealCardToPlayer(player);
         }
     }
-//
-//    public void getValueOfCardInHand(){
-//        return
-//    }
 
+    public void dealTwoCardsToPlayer(Player player) {
+        Card firstDealtCard = deck.dealCard();
+        player.addCardToHand(firstDealtCard);
+        Card secondDealtCard = deck.dealCard();
+        player.addCardToHand(secondDealtCard);
+    }
 
+    public void deal2ToAllPlayers() {
+        for (Player player : this.players) {
+            this.dealTwoCardsToPlayer(player);
+        }
+    }
 }

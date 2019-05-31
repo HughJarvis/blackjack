@@ -18,35 +18,35 @@ public class Deck {
         this.cards.add(card);
     }
 
-    public void createHeartCards(){
+    public void createHearts(){
         for(RankType rank : RankType.values()){
             this.cards.add(new Card(SuitType.HEARTS, rank));
         }
     }
 
-    public void createClubCards(){
+    public void createClubs(){
         for(RankType rank : RankType.values()){
             this.cards.add(new Card(SuitType.CLUBS, rank));
         }
     }
 
-    public void createSpadeCards(){
+    public void createSpades(){
         for(RankType rank : RankType.values()){
             this.cards.add(new Card(SuitType.SPADES, rank));
         }
     }
 
-    public void createDiamondCards(){
+    public void createDiamonds(){
         for(RankType rank : RankType.values()){
             this.cards.add(new Card(SuitType.DIAMONDS, rank));
         }
     }
 
     public void addAllCards(){
-        this.createHeartCards();
-        this.createClubCards();
-        this.createSpadeCards();
-        this.createDiamondCards();
+        this.createHearts();
+        this.createClubs();
+        this.createSpades();
+        this.createDiamonds();
     }
 
     public void shuffleDeck() {

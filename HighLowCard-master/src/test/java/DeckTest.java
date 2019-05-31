@@ -7,9 +7,9 @@ import static org.junit.Assert.assertEquals;
 
 public class DeckTest {
 
-    Deck deck;
-    ArrayList<Card> cards;
-    Card card;
+    private Deck deck;
+    private ArrayList<Card> cards;
+    private Card card;
 
 
 
@@ -34,32 +34,32 @@ public class DeckTest {
     }
 
     @Test
-    public void canCreateHeartCards(){
-        deck.createHeartCards();
+    public void canCreateHearts(){
+        deck.createHearts();
         assertEquals(13, deck.countCards());
     }
 
     @Test
-    public void canCreateClubCards(){
-        deck.createHeartCards();
-        deck.createClubCards();
+    public void canCreateClubs(){
+        deck.createHearts();
+        deck.createClubs();
         assertEquals(26, deck.countCards());
     }
 
     @Test
-    public void canCreateSpadeCards(){
-        deck.createHeartCards();
-        deck.createClubCards();
-        deck.createSpadeCards();
+    public void canCreateSpades(){
+        deck.createHearts();
+        deck.createClubs();
+        deck.createSpades();
         assertEquals(39, deck.countCards());
     }
 
     @Test
-    public void canCreateDiamondCards(){
-        deck.createHeartCards();
-        deck.createClubCards();
-        deck.createSpadeCards();
-        deck.createDiamondCards();
+    public void canCreateDiamonds(){
+        deck.createHearts();
+        deck.createClubs();
+        deck.createSpades();
+        deck.createDiamonds();
         assertEquals(52, deck.countCards());
     }
 
@@ -85,9 +85,4 @@ public class DeckTest {
 
 
 
-//    @Test
-//    public void canCreateAllHearts(){
-//        deck.createHearts();
-//        assertEquals(13, deck.countCards());
-//    }
 }
