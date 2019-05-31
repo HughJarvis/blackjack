@@ -30,18 +30,18 @@ public class GameTest {
 
         game = new Game(dealer, deck);
         game.addPlayer(player1);
-        game.addPlayer(player2);
+
     }
 
     @Test
     public void canCountPlayers() {
-        assertEquals(2, game.countPlayers());
+        assertEquals(1, game.countPlayers());
     }
 
     @Test
     public void canAddPlayer(){
-        game.addPlayer(player3);
-        assertEquals(3, game.countPlayers());
+        game.addPlayer(player2);
+        assertEquals(2, game.countPlayers());
     }
 
 
@@ -52,6 +52,12 @@ public class GameTest {
         assertEquals(51, deck.countCards());
     }
 
+    @Test
+    public void canDealCardToDealer() {
+        game.dealerTakesCard();
+        assertEquals(1, dealer.countHand());
+        assertEquals(51, deck.countCards());
+    }
 
     @Test
     public void canDealTwoCardsToPlayer() {
@@ -63,6 +69,7 @@ public class GameTest {
 
     @Test
     public void canDealCardToAllPlayers(){
+        game.addPlayer(player2);
         game.dealCardToAllPlayers();
         assertEquals(1, player1.countHand());
         assertEquals(1, player2.countHand());
@@ -72,12 +79,21 @@ public class GameTest {
 
     @Test
     public void canDealTwoCardsToAllPlayers(){
+        game.addPlayer(player2);
+        game.addPlayer(player3);
         game.deal2ToAllPlayers();
         assertEquals(2, player1.countHand());
         assertEquals(2, player2.countHand());
-        assertEquals(48, this.deck.countCards());
+        assertEquals(2, player3.countHand());
+        assertEquals(46, this.deck.countCards());
     }
 
+    @Test
+    public void canDealToStartGame() {
+        game.dealToStartGame(player1);
+        assertEquals(2, player1.countHand());
+        assertEquals(2, this.dealer.countHand());
+        assertEquals(48, this.deck.countCards());
 
-
+    }
 }

@@ -28,6 +28,11 @@ public class Game {
         player.addCardToHand(cardDealt);
     }
 
+    public void dealerTakesCard() {
+        Card dealersCard = deck.dealCard();
+        dealer.addCardToHand(dealersCard);
+    }
+
     public void dealCardToAllPlayers() {
         for (Player player : this.players) {
             this.dealCardToPlayer(player);
@@ -41,6 +46,7 @@ public class Game {
         player.addCardToHand(secondDealtCard);
     }
 
+
     public void deal2ToAllPlayers() {
         for (Player player : this.players) {
             this.dealTwoCardsToPlayer(player);
@@ -48,4 +54,10 @@ public class Game {
     }
 
 
+    public void dealToStartGame(Player player) {
+        this.dealCardToPlayer(player);
+        this.dealerTakesCard();
+        this.dealCardToPlayer(player);
+        this.dealerTakesCard();
+    }
 }
