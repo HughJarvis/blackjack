@@ -72,13 +72,20 @@ public class DeckTest {
     @Test
     public void canShuffleCards(){
         deck.addAllCards();
-        deck.shuffleDeck();
+        deck.shuffleCards();
+    }
+
+    @Test
+    public void canGetCards() {
+        deck.addAllCards();
+        deck.getCards();
+        assertEquals(52, deck.getCards().size());
+
     }
 
     @Test
     public void canDealcard(){
         deck.addAllCards();
-        deck.shuffleDeck();
         deck.dealCard();
         assertEquals(51, deck.countCards());
     }

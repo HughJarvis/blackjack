@@ -7,12 +7,13 @@ import static org.junit.Assert.assertEquals;
 
 public class GameTest {
 
-   // private ArrayList<Player> players;
+
     private Deck deck;
     private Game game;
     private Player player1;
     private Player player2;
     private Player player3;
+    private Dealer dealer;
 
 
     @Before
@@ -20,35 +21,35 @@ public class GameTest {
         player1 = new Player();
         player2 = new Player();
         player3 = new Player();
-        // players = new ArrayList<Player>();
-        deck = new Deck();
-        game = new Game(deck);
 
+        dealer = new Dealer();
+
+        deck = new Deck();
+        deck.addAllCards();
+        deck.shuffleCards();
+
+        game = new Game(dealer, deck);
         game.addPlayer(player1);
         game.addPlayer(player2);
-        deck.addAllCards();
-        deck.shuffleDeck();
+    }
 
+    @Test
+    public void canCountPlayers() {
+        assertEquals(2, game.countPlayers());
     }
 
     @Test
     public void canAddPlayer(){
         game.addPlayer(player3);
-        assertEquals(3, game.playersCount());
+        assertEquals(3, game.countPlayers());
     }
+
 
     @Test
     public void canDealCardToPlayer(){
         game.dealCardToPlayer(player1);
         assertEquals(1, player1.countHand());
-    }
-
-    @Test
-    public void canDealCardToAllPlayers(){
-        game.dealCardToAllPlayers();
-        assertEquals(1, player1.countHand());
-        assertEquals(1, player2.countHand());
-        assertEquals(50, this.deck.countCards());
+        assertEquals(51, deck.countCards());
     }
 
 
@@ -61,12 +62,22 @@ public class GameTest {
 
 
     @Test
+    public void canDealCardToAllPlayers(){
+        game.dealCardToAllPlayers();
+        assertEquals(1, player1.countHand());
+        assertEquals(1, player2.countHand());
+        assertEquals(50, this.deck.countCards());
+    }
+
+
+    @Test
     public void canDealTwoCardsToAllPlayers(){
         game.deal2ToAllPlayers();
         assertEquals(2, player1.countHand());
         assertEquals(2, player2.countHand());
         assertEquals(48, this.deck.countCards());
     }
+
 
 
 }

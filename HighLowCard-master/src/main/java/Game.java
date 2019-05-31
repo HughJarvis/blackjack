@@ -4,11 +4,13 @@ public class Game {
 
     private Deck deck;
     private ArrayList<Player> players;
+    private Dealer dealer;
 
 
-    public Game(Deck deck){
-        this.deck = deck;
+    public Game(Dealer dealer, Deck deck){
         this.players = new ArrayList<Player>();
+        this.dealer = dealer;
+        this.deck = deck;
     }
 
 
@@ -16,15 +18,15 @@ public class Game {
         this.players.add(player);
     }
 
-    public int playersCount(){
-       return this.players.size();
+
+    public int countPlayers() {
+        return this.players.size();
     }
 
     public void dealCardToPlayer(Player player) {
-        Card dealtCard = deck.dealCard();
-        player.addCardToHand(dealtCard);
+        Card cardDealt = deck.dealCard();
+        player.addCardToHand(cardDealt);
     }
-
 
     public void dealCardToAllPlayers() {
         for (Player player : this.players) {
@@ -44,4 +46,6 @@ public class Game {
             this.dealTwoCardsToPlayer(player);
         }
     }
+
+
 }

@@ -5,19 +5,28 @@ import static org.junit.Assert.assertEquals;
 
     public class DealerTest {
 
-        private Dealer dealer;
         private Card card1;
         private Card card2;
+        private Deck deck;
+        private Dealer dealer;
 
         @Before
         public void setUp(){
-            dealer = new Dealer();
             card1 = new Card(SuitType.DIAMONDS, RankType.NINE);
             card2 = new Card(SuitType.HEARTS, RankType.FOUR);
+            deck = new Deck();
+            deck.addAllCards();
+            dealer = new Dealer();
         }
 
+//        @Test
+//        public void canDealCard() {
+//            dealer.dealCard();
+//            assertEquals(51, deck.countCards());
+//        }
+
         @Test
-        public void startsWithNoCard(){
+        public void startsWithNoCardinHand(){
             assertEquals(0, dealer.countHand());
         }
 

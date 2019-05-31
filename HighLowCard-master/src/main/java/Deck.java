@@ -49,8 +49,12 @@ public class Deck {
         this.createDiamonds();
     }
 
-    public void shuffleDeck() {
+    public void shuffleCards() {
         Collections.shuffle(this.cards);
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
     }
 
     public Card dealCard() {
