@@ -66,6 +66,7 @@ public class GameTest {
         assertEquals(2, player1.countHand());
         assertEquals(2, player2.countHand());
         assertEquals(48, this.deck.countCards());
-
     }
+
+
 }
