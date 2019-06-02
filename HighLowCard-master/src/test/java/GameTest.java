@@ -110,8 +110,7 @@ public class GameTest {
 
     @Test
     public void playerCanTwist() {
-        game.dealCardToPlayer(player1);
-        game.dealCardToPlayer(player1);
+        game.dealToStartGame(player1);
         game.playerTwists(player1);
         assertEquals(3, player1.countHand());
     }
