@@ -73,4 +73,7 @@ public class Game {
     }
 
 
+    public void playerTwists(Player player1) {
+        this.dealCardToPlayer(player1);
+    }
 }

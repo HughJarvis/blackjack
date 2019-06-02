@@ -107,4 +107,13 @@ public class GameTest {
         dealer.addCardToHand(card4);
         assertEquals(dealer.getHand(), game.compareHands());
     }
+
+    @Test
+    public void playerCanTwist() {
+        game.dealCardToPlayer(player1);
+        game.dealCardToPlayer(player1);
+        game.playerTwists(player1);
+        assertEquals(3, player1.countHand());
+    }
+
 }
