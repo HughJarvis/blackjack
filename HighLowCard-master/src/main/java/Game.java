@@ -64,10 +64,10 @@ public class Game {
     public ArrayList<Card> compareHands() {
         ArrayList<Card> winningHand = new ArrayList<Card>();
         for (Player player : this.players) {
-            if (dealer.getHandValue() >= player.getHandValue()) {
-                winningHand = dealer.getHand();
+            if ((player.getHandValue() > dealer.getHandValue() && player.getHandValue() <= 21) || (player.getHandValue() <= 21 && dealer.getHandValue() > 21)) {
+                winningHand = player.getHand();
             }
-            else winningHand = player.getHand();
+            else winningHand = dealer.getHand();
         }
         return winningHand;
     }

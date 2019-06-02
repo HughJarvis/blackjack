@@ -41,8 +41,14 @@ public class Dealer {
             return handValue;
         }
 
-    public void dealCardToPlayer(Player player1) {
+    public int getHandValueAcesHigh() {
+        int handValue = 0;
+        for (Card card : this.hand) {
+            if (card.getRank() == RankType.ACE) {
+                handValue += card.getValueFromEnum() + 9;
+            } else handValue += card.getValueFromEnum();
+
+        }
+        return handValue;
     }
-
-
 }
