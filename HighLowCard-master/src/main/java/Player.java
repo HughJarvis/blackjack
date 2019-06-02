@@ -17,6 +17,10 @@ public class Player {
         this.hand.add(card);
     }
 
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
     public int getHandValue() {
             int handValue = 0;
         for (Card card : this.hand){
@@ -24,6 +28,8 @@ public class Player {
         }
         return handValue;
     }
+
+
 
 }
 

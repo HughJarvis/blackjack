@@ -1,13 +1,15 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
 public class GameTest {
 
 
+    private Card card1;
+    private Card card2;
+    private Card card3;
+    private Card card4;
     private Deck deck;
     private Game game;
     private Player player1;
@@ -18,6 +20,11 @@ public class GameTest {
 
     @Before
     public void setUp(){
+        card1 = new Card(SuitType.HEARTS, RankType.FIVE );
+        card2 = new Card(SuitType.DIAMONDS, RankType.TEN );
+        card3 = new Card(SuitType.SPADES, RankType.QUEEN );
+        card4 = new Card(SuitType.CLUBS, RankType.JACK );
+
         player1 = new Player();
         player2 = new Player();
         player3 = new Player();
@@ -30,7 +37,6 @@ public class GameTest {
 
         game = new Game(dealer, deck);
         game.addPlayer(player1);
-
     }
 
     @Test
@@ -43,7 +49,6 @@ public class GameTest {
         game.addPlayer(player2);
         assertEquals(2, game.countPlayers());
     }
-
 
     @Test
     public void canDealCardToPlayer(){
@@ -66,7 +71,6 @@ public class GameTest {
         assertEquals(50, this.deck.countCards());
     }
 
-
     @Test
     public void canDealCardToAllPlayers(){
         game.addPlayer(player2);
@@ -75,7 +79,6 @@ public class GameTest {
         assertEquals(1, player2.countHand());
         assertEquals(50, this.deck.countCards());
     }
-
 
     @Test
     public void canDealTwoCardsToAllPlayers(){
@@ -94,6 +97,14 @@ public class GameTest {
         assertEquals(2, player1.countHand());
         assertEquals(2, this.dealer.countHand());
         assertEquals(48, this.deck.countCards());
+    }
 
+    @Test
+    public void canCompareHandsAndReturnWinner() {
+        player1.addCardToHand(card1);
+        dealer.addCardToHand(card2);
+        player1.addCardToHand(card3);
+        dealer.addCardToHand(card4);
+        assertEquals(dealer.getHand(), game.compareHands());
     }
 }

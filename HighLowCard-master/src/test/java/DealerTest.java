@@ -37,6 +37,13 @@ import static org.junit.Assert.assertEquals;
         }
 
         @Test
+        public void canGetHand() {
+            dealer.addCardToHand(card1);
+            dealer.addCardToHand(card2);
+            assertEquals(2, dealer.getHand().size());
+        }
+
+        @Test
         public void canGetHandValue() {
             dealer.addCardToHand(card1);
             dealer.addCardToHand(card2);

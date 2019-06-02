@@ -60,4 +60,17 @@ public class Game {
         this.dealCardToPlayer(player);
         this.dealerTakesCard();
     }
+
+    public ArrayList<Card> compareHands() {
+        ArrayList<Card> winningHand = new ArrayList<Card>();
+        for (Player player : this.players) {
+            if (dealer.getHandValue() >= player.getHandValue()) {
+                winningHand = dealer.getHand();
+            }
+            else winningHand = player.getHand();
+        }
+        return winningHand;
+    }
+
+
 }

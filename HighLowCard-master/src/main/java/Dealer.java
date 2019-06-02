@@ -21,7 +21,11 @@ public class Dealer {
 //        }
 
 
-        public int countHand() {
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
+    public int countHand() {
             return this.hand.size();
         }
 

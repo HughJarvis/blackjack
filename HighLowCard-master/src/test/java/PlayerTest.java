@@ -37,4 +37,11 @@ public class PlayerTest {
 
 
     }
+
+    @Test
+    public void canGetHand() {
+        player.addCardToHand(card1);
+        player.addCardToHand(card2);
+        assertEquals(2, player.getHand().size());
+    }
 }
