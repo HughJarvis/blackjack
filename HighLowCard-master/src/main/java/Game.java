@@ -18,7 +18,6 @@ public class Game {
         this.players.add(player);
     }
 
-
     public int countPlayers() {
         return this.players.size();
     }
@@ -64,7 +63,17 @@ public class Game {
     public ArrayList<Card> compareHands() {
         ArrayList<Card> winningHand = new ArrayList<Card>();
         for (Player player : this.players) {
-            if ((player.getHandValue() > dealer.getHandValue() && player.getHandValue() <= 21) || (player.getHandValue() <= 21 && dealer.getHandValue() > 21)) {
+            //(player's value is greater than dealer's high value AND
+            // player's value is less than or equal to 21)
+            //
+            // OR
+            // (player's high value is greater than dealer's high value
+            //  AND player's high value is less than or equal to 21)
+            //
+            // OR
+            //  player's value is less than or equal to 21 AND dealer's value is greater than 21
+            //
+            if ((player.getHandValue() > dealer.getHandValueAcesHigh() && player.getHandValue() <= 21) || (player.getHandValueAcesHigh() > dealer.getHandValueAcesHigh() && player.getHandValueAcesHigh() <= 21) || (player.getHandValue() <= 21 && dealer.getHandValue() > 21)) {
                 winningHand = player.getHand();
             }
             else winningHand = dealer.getHand();
