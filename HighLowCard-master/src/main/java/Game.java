@@ -80,4 +80,11 @@ public class Game {
     public void dealerTwists() {
         this.dealerTakesCard();
     }
+
+    public void dealerStickOrTwist() {
+        if (dealer.getHandValue() < 16){
+            this.dealerTwists();
+        }
+        else this.compareHands();
+    }
 }

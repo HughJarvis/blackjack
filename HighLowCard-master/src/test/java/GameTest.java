@@ -120,7 +120,13 @@ public class GameTest {
         game.dealToStartGame(player1);
         game.dealerTwists();
         assertEquals(3, dealer.countHand());
+    }
 
-
+    @Test
+    public void dealerTwistsIfHandValueGreaterThan16(){
+        dealer.addCardToHand(card1);
+        dealer.addCardToHand(card2);
+        game.dealerStickOrTwist();
+        assertEquals(3, dealer.countHand());
     }
 }
