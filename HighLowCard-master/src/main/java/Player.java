@@ -29,8 +29,18 @@ public class Player {
         return handValue;
     }
 
+    public int getHandValueAcesHigh() {
+        int handValue = 0;
+        for (Card card : this.hand) {
+            if (card.getRank() == RankType.ACE) {
+                handValue += card.getValueFromEnum() + 9;
+            } else handValue += card.getValueFromEnum();
 
+        }
+        return handValue;
+    }
 
 }
+
 
 
