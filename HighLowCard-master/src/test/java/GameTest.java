@@ -116,4 +116,12 @@ public class GameTest {
         assertEquals(3, player1.countHand());
     }
 
+    @Test
+    public void dealerCanTwist() {
+        game.dealToStartGame(player1);
+        game.dealerTwists();
+        assertEquals(3, dealer.countHand());
+
+
+    }
 }
